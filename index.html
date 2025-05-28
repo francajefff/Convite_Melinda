@@ -80,17 +80,11 @@
         <div class="gif-presente">
           <img 
             id="gifCinderela"
+            class="gif-cinderela"
             src="img/CinderelaGif.gif" 
-            alt="Descrição do GIF" 
-            style="
-              display: block;
-              margin: 0 auto;
-              width: 600px; 
-              height: 400px;
-              border-radius: 25px;
-              cursor: pointer;
-            "
+            alt="Descrição do GIF"
           />
+
           <p id="mensagemClique" style="text-align: center; color: #4b0082;">
             Clique na Cinderela para ver as sugestões de presentes!
           </p>
@@ -117,17 +111,14 @@
       </section>
 
       <script>
-        // Mostrar presentes ao clicar no GIF
         document.getElementById("gifCinderela").addEventListener("click", function() {
           document.getElementById("listaPresentes").classList.remove("hidden");
           document.getElementById("gifCinderela").style.display = "none";
           document.getElementById("mensagemClique").style.display = "none";
           
-          // Rolagem suave para a lista de presentes
           document.getElementById("listaPresentes").scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Rolagem suave para os links do menu
         document.querySelectorAll('nav a').forEach(anchor => {
           anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -135,12 +126,10 @@
             const targetElement = document.querySelector(targetId);
             
             if(targetId === '#presentes') {
-              // Para o link de Presentes, rola até o GIF
               document.getElementById('gifCinderela').scrollIntoView({
                 behavior: 'smooth'
               });
             } else {
-              // Para outros links, rola normalmente
               targetElement.scrollIntoView({
                 behavior: 'smooth'
               });
@@ -148,7 +137,6 @@
           });
         });
 
-        // Seu código existente para o castelo (se houver)
         document.getElementById("portao").addEventListener("click", function() {
           document.getElementById("mapa").classList.remove("oculto");
           document.getElementById("cliqueTexto").style.display = "none";
