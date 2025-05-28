@@ -1,16 +1,13 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fef6ff;
   background: linear-gradient(to right, #e0c3fc, #8ec5fc);
   color: #333;
   scroll-behavior: smooth;
-  position: relative;
 }
 
 nav {
-  background: #8ec5fc;
-  background: linear-gradient(to right, #8ec5fc,  #e0c3fc );
+  background: linear-gradient(to right, #8ec5fc, #e0c3fc);
   padding: 1rem;
   position: sticky;
   top: 0;
@@ -50,21 +47,22 @@ nav a:hover {
 h1, h2 {
   font-size: 2rem;
   color: #4b0082;
-  font-family: 'Cinderella', serif; 
   text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.5); 
 }
 
+/* CARROSSEL AJUSTADO */
 .carousel {
-  border-radius:25px;
+  border-radius: 25px;
   display: flex;
   overflow: hidden;
-  width: 50%;
-  height: 600px;
+  width: 90%;
+  max-width: 800px;
+  height: 80vw;
+  max-height: 800px;
   position: relative;
   margin: 2rem auto;
-  margin-top:-15px;
-  left: 0;
-  right: 0;
+  margin-top: -15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .carousel img {
@@ -73,6 +71,7 @@ h1, h2 {
   flex-shrink: 0;
   animation: slide 66s infinite;
   object-fit: cover;
+  object-position: center top;
 }
 
 @keyframes slide {
@@ -127,61 +126,23 @@ h1, h2 {
   box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3); 
 }
 
-.estrelas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('estrelas.gif') repeat;
-  opacity: 0.3;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  animation: estrelas 5s infinite; 
-}
-
-@keyframes estrelas {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-  100% { opacity: 0.3; }
-}
-
-.estrelas-cintilantes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('cintilando.gif') repeat;
-  z-index: -2;
-  opacity: 0.1;
-  animation: cintilar 2s infinite alternate;
-}
-
-@keyframes cintilar {
-  0% { opacity: 0.1; }
-  100% { opacity: 0.6; }
-}
-
-.sapatinho {
-  position: absolute;
-  bottom: 10%;
-  left: 10%;
-  width: 80px;
-  height: 80px;
-  background:  no-repeat center center;
-  background-size: contain;
-  animation: sapatinho-dance 6s infinite;
-}
-
-@keyframes sapatinho-dance {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+#local {
+  position: relative;
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+  overflow: hidden;
+  z-index: 1;
 }
 
 .castelo-container {
   position: relative;
-  animation: floatCastelo 3s infinite ease-in-out; 
+  animation: floatCastelo 3s infinite ease-in-out;
+  z-index: 2;
+}
+
+@keyframes floatCastelo {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 .castelo {
@@ -194,6 +155,12 @@ h1, h2 {
   margin-top: 1rem;
   font-style: italic;
   color: #555;
+}
+
+.mapa {
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .mapa iframe {
@@ -209,6 +176,15 @@ h1, h2 {
 
 .hidden {
   display: none !important;
+}
+
+#gifCinderela {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 .presentes {
@@ -232,7 +208,7 @@ h1, h2 {
 }
 
 .presente img {
-  border-radius:10px;
+  border-radius: 10px;
   width: 100px;
   height: 100px;
   object-fit: contain;
@@ -244,22 +220,52 @@ h1, h2 {
   font-weight: bold;
 }
 
-@media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.5rem;
+@media (max-width: 1024px) {
+  .carousel {
+    height: 65vw;
+  }
+}
+
+@media (max-width: 768px) {
+  #gifCinderela {
+    width: 90%;
   }
 
   .carousel {
-    height: 200px;
+    height: 75vw;
+    width: 95%;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 85vw;
+    border-radius: 15px;
   }
 
   .castelo {
     width: 200px;
   }
 
+  .presentes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
   .presente img {
     width: 80px;
     height: 80px;
   }
-}
 
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+}
