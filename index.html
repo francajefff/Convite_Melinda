@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convite da Melinda ✨</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Estilos adicionais para a seta de voltar ao topo */
+      .voltar-topo {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        transition: transform 0.3s, background 0.3s;
+      }
+
+      .voltar-topo:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      }
+
+      .hidden {
+        display: none;
+      }
+      
+      /* Estilo específico para o GIF do castelo */
+      .banner-gif {
+        width: 100%;
+        max-width: 800px; /* Tamanho máximo para telas grandes */
+        min-width: 300px; /* Tamanho mínimo para telas pequenas */
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#home">Convite</a></li>
+        <li><a href="#local">Local</a></li>
+        <li><a href="#presentes">Presentes</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="home" class="section">
+        <h1>
+         1 Aninho da Princesa Melinda Vitória! ✨
+        </h1>
+        <h3>O Baile ocorrerá no dia 19/07/2025 às 17:00</h3>
+        <img src="img/CasteloGif.gif" alt="Descrição do GIF" class="banner-gif"/>
+        <h1>Momentos da Doce Mel ✨</h1>
+        <div class="carousel">
+          <img src="img/Mel1.jpg" alt="Melinda 1" />
+          <img src="img/Mel2.jpg" alt="Melinda 2" />
+          <img src="img/Mel3.jpg" alt="Melinda 3" />
+          <img src="img/Mel4.jpg" alt="Melinda 4" />
+          <img src="img/Mel5.jpg" alt="Melinda 5" />
+          <img src="img/Mel6.jpg" alt="Melinda 6" />
+          <img src="img/Mel7.jpg" alt="Melinda 7" />
+          <img src="img/Mel8.jpg" alt="Melinda 8" />
+          <img src="img/Mel9.jpg" alt="Melinda 9" />
+          <img src="img/Mel10.jpg" alt="Melinda 10" />
+          <img src="img/Mel11.jpg" alt="Melinda 11" />
+          <img src="img/Mel12.jpg" alt="Melinda 12" />
+          <img src="img/Mel13.jpg" alt="Melinda 13" />
+          <img src="img/Mel14.jpg" alt="Melinda 14" />
+          <img src="img/Mel15.jpg" alt="Melinda 15" />
+          <img src="img/Mel16.jpg" alt="Melinda 16" />
+          <img src="img/Mel17.jpg" alt="Melinda 17" />
+          <img src="img/Mel18.jpg" alt="Melinda 18" />
+          <img src="img/Mel19.jpg" alt="Melinda 19" />
+          <img src="img/Mel20.jpg" alt="Melinda 20" />
+          <img src="img/Mel21.jpg" alt="Melinda 21" />
+          <img src="img/Mel22.jpg" alt="Melinda 22" />
+        </div>
+      </section>
+      
+      <section id="local" class="section">
+        <div class="estrelas"></div>
+        <div class="castelo-container">
+          <img
+            src="img/castelo.png"
+            alt="Castelo da Cinderela"
+            class="castelo"
+            id="portao"
+          />
+          <p id="cliqueTexto">
+            Clique no Castelo encantado para revelar o mapa!
+          </p>
+          <div id="mapa" class="mapa oculto">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.9016215956817!2d-34.9191272!3d-8.111499100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1e59b82c6a8f%3A0xce525558de850498!2sR.%20Rio%20Ipojuca%2C%20341%20-%20Ipsep%2C%20Recife%20-%20PE%2C%2051190-440!5e0!3m2!1spt-BR!2sbr!4v1744226377874!5m2!1spt-BR!2sbr"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="confirmacao">
+            <img src="img/qrcode.png" alt="QR Code" class="qr-code" /><br>
+            <a href="https://wa.me/+5581999852457" target="_blank" class="botao">Confirmar Presença</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="presentes" class="section">
+        <div class="gif-presente">
+          <img 
+            id="gifCinderela"
+            class="gif-cinderela"
+            src="img/CinderelaGif.gif" 
+            alt="Cinderela dançando"
+          />
+
+          <p id="mensagemClique" style="text-align: center; color: #4b0082;">
+            Clique na Cinderela para ver as sugestões de presentes!
+          </p>
+
+          <div class="presentes hidden" id="listaPresentes">
+            <div class="presente">
+              <img src="img/presente1.png" alt="Boneca" />
+              <p>Roupas 1/2 Anos</p>
+            </div>
+            <div class="presente">
+              <img src="img/presente2.png" alt="Livro Ilustrado" />
+              <p>Calçados 21/22</p>
+            </div>
+            <div class="presente">
+              <img src="img/presente3.png" alt="Conjunto de Princesa" />
+              <p>Brinquedos Educativos 1 Ano</p>
+            </div>
+            <div class="presente">
+              <img src="img/presente4.jpeg" alt="Roupinha Fofa" />
+              <p>Livros Ilustrativos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Botão de voltar ao topo -->
+    <div id="voltarTopo" class="voltar-topo hidden">↑</div>
+
+    <script>
+      // Mostrar presentes ao clicar no GIF
+      document.getElementById("gifCinderela").addEventListener("click", function() {
+        document.getElementById("listaPresentes").classList.remove("hidden");
+        document.getElementById("gifCinderela").style.display = "none";
+        document.getElementById("mensagemClique").style.display = "none";
+        
+        // Rolagem suave para a lista de presentes
+        document.getElementById("listaPresentes").scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Rolagem suave para os links do menu
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          
+          if(targetId === '#presentes') {
+            // Rola para a seção de presentes, não para o GIF
+            document.querySelector('#presentes').scrollIntoView({
+              behavior: 'smooth'
+            });
+          } else {
+            // Para outros links, rola normalmente
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Mostrar mapa ao clicar no castelo
+      document.getElementById("portao").addEventListener("click", function() {
+        document.getElementById("mapa").classList.remove("oculto");
+        document.getElementById("cliqueTexto").style.display = "none";
+      });
+
+      // Seta de voltar ao topo
+      const btnVoltarTopo = document.getElementById('voltarTopo');
+
+      // Mostrar/ocultar seta quando rolar a página
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          btnVoltarTopo.classList.remove('hidden');
+        } else {
+          btnVoltarTopo.classList.add('hidden');
+        }
+      });
+
+      // Função para voltar ao topo e resetar elementos
+      btnVoltarTopo.addEventListener('click', function() {
+        // Resetar elementos
+        document.getElementById('mapa').classList.add('oculto');
+        document.getElementById('cliqueTexto').style.display = 'block';
+        
+        document.getElementById('listaPresentes').classList.add('hidden');
+        document.getElementById('gifCinderela').style.display = 'block';
+        document.getElementById('mensagemClique').style.display = 'block';
+        
+        // Rolagem suave para o topo
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+  </body>
+</html>
