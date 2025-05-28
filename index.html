@@ -5,6 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Convite da Melinda ✨</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .voltar-topo {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(to right, #8ec5fc, #e0c3fc);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        transition: transform 0.3s, background 0.3s;
+      }
+
+      .voltar-topo:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+      }
+
+      .hidden {
+        display: none;
+      }
+      
+      
+      .banner-gif {
+        width: 100%;
+        max-width: 800px; 
+        min-width: 300px; 
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -16,13 +57,12 @@
     </nav>
 
     <main>
-      <section id="home" class="section"></br></br></br></br></br>
-        <h1 style="margin-top:-100px">
-          Você está convidado para o aniversário de </br> 1 aninho da Princesa Melinda Vitória! ✨
+      <section id="home" class="section">
+        <h1>
+          Você está convidado para o aniversário de <br> 1 aninho da Princesa Melinda Vitória! ✨
         </h1>
-        <img src="img/CasteloGif.gif" alt="Descrição do GIF" style="margin-top:-10px; width: 100%; height: 500px; position:center"/>
-        </br></br></br></br></br>
-        <h1 id="home" class="section">Momentos da Doce Mel ✨</h1>
+        <img src="img/CasteloGif.gif" alt="Descrição do GIF" class="banner-gif"/>
+        <h1>Momentos da Doce Mel ✨</h1>
         <div class="carousel">
           <img src="img/Mel1.jpg" alt="Melinda 1" />
           <img src="img/Mel2.jpg" alt="Melinda 2" />
@@ -69,8 +109,7 @@
             </iframe>
           </div>
           <div class="confirmacao">
-            </br></br></br>
-            <img src="img/qrcode.png" alt="QR Code" class="qr-code" /></br>
+            <img src="img/qrcode.png" alt="QR Code" class="qr-code" /><br>
             <a href="https://wa.me/+5581999852457" target="_blank" class="botao">Confirmar Presença</a>
           </div>
         </div>
@@ -82,7 +121,7 @@
             id="gifCinderela"
             class="gif-cinderela"
             src="img/CinderelaGif.gif" 
-            alt="Descrição do GIF"
+            alt="Cinderela dançando"
           />
 
           <p id="mensagemClique" style="text-align: center; color: #4b0082;">
@@ -109,41 +148,64 @@
           </div>
         </div>
       </section>
-
-      <script>
-        document.getElementById("gifCinderela").addEventListener("click", function() {
-          document.getElementById("listaPresentes").classList.remove("hidden");
-          document.getElementById("gifCinderela").style.display = "none";
-          document.getElementById("mensagemClique").style.display = "none";
-          
-          document.getElementById("listaPresentes").scrollIntoView({ behavior: 'smooth' });
-        });
-
-        document.querySelectorAll('nav a').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if(targetId === '#presentes') {
-              document.getElementById('gifCinderela').scrollIntoView({
-                behavior: 'smooth'
-              });
-            } else {
-              targetElement.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }
-          });
-        });
-
-        document.getElementById("portao").addEventListener("click", function() {
-          document.getElementById("mapa").classList.remove("oculto");
-          document.getElementById("cliqueTexto").style.display = "none";
-        });
-      </script>
     </main>
 
-    <script type="module" src="script.js"></script>
+    <div id="voltarTopo" class="voltar-topo hidden">↑</div>
+
+    <script>
+      document.getElementById("gifCinderela").addEventListener("click", function() {
+        document.getElementById("listaPresentes").classList.remove("hidden");
+        document.getElementById("gifCinderela").style.display = "none";
+        document.getElementById("mensagemClique").style.display = "none";
+        
+        document.getElementById("listaPresentes").scrollIntoView({ behavior: 'smooth' });
+      });
+
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          
+          if(targetId === '#presentes') {
+            document.querySelector('#presentes').scrollIntoView({
+              behavior: 'smooth'
+            });
+          } else {
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      document.getElementById("portao").addEventListener("click", function() {
+        document.getElementById("mapa").classList.remove("oculto");
+        document.getElementById("cliqueTexto").style.display = "none";
+      });
+
+      const btnVoltarTopo = document.getElementById('voltarTopo');
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          btnVoltarTopo.classList.remove('hidden');
+        } else {
+          btnVoltarTopo.classList.add('hidden');
+        }
+      });
+
+      btnVoltarTopo.addEventListener('click', function() {
+        document.getElementById('mapa').classList.add('oculto');
+        document.getElementById('cliqueTexto').style.display = 'block';
+        
+        document.getElementById('listaPresentes').classList.add('hidden');
+        document.getElementById('gifCinderela').style.display = 'block';
+        document.getElementById('mensagemClique').style.display = 'block';
+        
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>
